@@ -1,4 +1,5 @@
 import requests
+
 from pybratabase.schemas import Document, RELS
 
 
@@ -15,7 +16,7 @@ class Session:
                     self.credentials['app_key'], self.credentials['app_secret'])
         self.headers = headers or None
         self.host = host
-        self.site = self.get(host)
+        self.root = self.get(host)
 
     def get(self, url):
         resp = requests.get(url, headers=self.headers)
